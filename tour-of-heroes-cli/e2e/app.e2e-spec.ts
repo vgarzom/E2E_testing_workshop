@@ -116,3 +116,20 @@ describe('Tour of heroes, go to a hero from List', () => {
     expect(page.getH2Tags()).toEqual(['Zero details!']);
   });
 });
+
+// Navega a un heroe desde la búsqueda
+describe('Tour of heroes, go to a hero from search', () => {
+  let page: TourOfHeroesPage;
+
+  beforeEach(() => {
+    page = new TourOfHeroesPage();
+    page.navigateTo();
+  });
+
+  it('Should navigate to first hero in the search list', () => {
+    const heroName = "Narco";
+    page.enterHeroSearch(heroName);
+    page.selectHeroSearched();
+    expect(page.getH2Tags()).toEqual([heroName + ' details!']);
+  });
+});

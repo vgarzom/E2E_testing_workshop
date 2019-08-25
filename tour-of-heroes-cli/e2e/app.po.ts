@@ -70,4 +70,8 @@ export class TourOfHeroesPage {
   gotoSelectedHeroFromList() {
     element(by.buttonText('View Details')).click();
   }
+
+  selectHeroSearched() {
+    element(by.css('.search-result')).click();
+  }
 }
