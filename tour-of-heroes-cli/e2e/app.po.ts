@@ -66,4 +66,8 @@ export class TourOfHeroesPage {
   selectHeroFromDashboard() {
     element(by.css('.col-1-4')).click();
   }
+
+  gotoSelectedHeroFromList() {
+    element(by.buttonText('View Details')).click();
+  }
 }

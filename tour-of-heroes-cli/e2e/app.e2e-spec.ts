@@ -94,9 +94,25 @@ describe('Tour of heroes, go to a hero from dashboard', () => {
     page.navigateTo();
   });
 
-  it('Should navigate to first hero', () => {
+  it('Should navigate to first hero in the dashboard', () => {
     page.selectHeroFromDashboard();
     expect(page.getH2Tags()).toEqual(['Mr. Nice details!']);
   });
 });
 
+
+// Navega a un heroe desde el listado
+describe('Tour of heroes, go to a hero from List', () => {
+  let page: TourOfHeroesPage;
+
+  beforeEach(() => {
+    page = new TourOfHeroesPage();
+    page.navigateToHeroes();
+  });
+
+  it('Should navigate to first hero in the list', () => {
+    page.selectFirstHeroFromList();
+    page.gotoSelectedHeroFromList();
+    expect(page.getH2Tags()).toEqual(['Zero details!']);
+  });
+});
