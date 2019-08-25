@@ -26,4 +26,8 @@ export class TourOfHeroesPage {
     element(by.id('search-box')).sendKeys(hero);
     return element.all(by.css('.search-result'));
   }
+
+  removeAHero() {
+    element(by.css('.heroes')).element(by.css('.delete')).click();
+  }
 }

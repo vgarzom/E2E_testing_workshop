@@ -46,3 +46,19 @@ describe('Tour of heroes, search hero', () => {
     expect(page.enterHeroSearch("Tornado").count()).toBe(1);
   });
 });
+
+
+describe('Tour of heroes, delete a hero', () => {
+  let page: TourOfHeroesPage;
+
+  beforeEach(() => {
+    page = new TourOfHeroesPage();
+    page.navigateToHeroes();
+  });
+
+  it('Should remove a hero', () => {
+    const currentHeroes = page.getAllHeroes().count();
+    page.removeAHero();
+    expect(page.getAllHeroes().count()).toBe(currentHeroes.then(n => n - 1));
+  });
+});
