@@ -1,4 +1,5 @@
 import { TourOfHeroesPage } from './app.po';
+import { browser, until, by } from 'protractor';
 
 describe('Tour of heroes Dashboard', () => {
   let page: TourOfHeroesPage;
@@ -61,4 +62,25 @@ describe('Tour of heroes, delete a hero', () => {
     page.removeAHero();
     expect(page.getAllHeroes().count()).toBe(currentHeroes.then(n => n - 1));
   });
+});
+
+
+describe('Tour of heroes, update a hero', () => {
+  let page: TourOfHeroesPage;
+  const newName = "Superman";
+
+  beforeEach(() => {
+    page = new TourOfHeroesPage();
+    page.navigateToHero0();
+  });
+
+
+  it('Should edit a hero and navigate', () => {
+    page.updateHeroName(newName);
+    browser.wait(until.elementLocated(by.tagName('my-heroes')), 5000);
+    console.log("after the timeout");
+    page.selectFirstHeroFromList();
+    expect(page.getH2Tags()).toEqual(['My Heroes', newName.toUpperCase() + ' is my hero']);
+  });
+
 });

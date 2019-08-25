@@ -1,4 +1,4 @@
-import {browser, by, element, ElementFinder} from 'protractor';
+import { browser, by, element, ElementFinder } from 'protractor';
 
 export class TourOfHeroesPage {
   navigateTo() {
@@ -11,6 +11,10 @@ export class TourOfHeroesPage {
 
   navigateToHeroes() {
     element(by.linkText('Heroes')).click();
+  }
+
+  navigateToHero0() {
+    return browser.get('/detail/0');
   }
 
   getAllHeroes() {
@@ -29,5 +33,33 @@ export class TourOfHeroesPage {
 
   removeAHero() {
     element(by.css('.heroes')).element(by.css('.delete')).click();
+  }
+
+  updateHeroName(name: string) {
+    let input = element(by.tagName('input'));
+    input.clear();
+    input.sendKeys(name);
+    element(by.buttonText('Save')).click();
+  }
+
+  selectFirstHeroFromList() {
+    element(by.css('.heroes')).element(by.tagName('li')).click();
+  }
+
+  getH2Tags() {
+    return element.all(by.tagName("H2")).getText();
+  }
+
+  gotoFirstHeroFromList() {
+    element(by.css('.heroes')).element(by.tagName('li')).click();
+    element(by.buttonText('View Details')).click();
+  }
+
+  getFirstHeroFromList() {
+    return element(by.css('.heroes')).element(by.tagName('li')).all(by.tagName('span'));
+  }
+
+  getHeroName() {
+    return element(by.tagName('input')).getText();
   }
 }
