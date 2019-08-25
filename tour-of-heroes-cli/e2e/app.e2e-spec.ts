@@ -35,6 +35,7 @@ describe('Tour of heroes, heroes page', () => {
 
 });
 
+//Busca un heroe
 describe('Tour of heroes, search hero', () => {
   let page: TourOfHeroesPage;
 
@@ -48,7 +49,7 @@ describe('Tour of heroes, search hero', () => {
   });
 });
 
-
+//Elimina un heroe
 describe('Tour of heroes, delete a hero', () => {
   let page: TourOfHeroesPage;
 
@@ -64,7 +65,7 @@ describe('Tour of heroes, delete a hero', () => {
   });
 });
 
-
+//Edita un heroe
 describe('Tour of heroes, update a hero', () => {
   let page: TourOfHeroesPage;
   const newName = "Superman";
@@ -73,7 +74,6 @@ describe('Tour of heroes, update a hero', () => {
     page = new TourOfHeroesPage();
     page.navigateToHero0();
   });
-
 
   it('Should edit a hero and navigate', () => {
     page.updateHeroName(newName);
@@ -84,3 +84,19 @@ describe('Tour of heroes, update a hero', () => {
   });
 
 });
+
+// Navega a un heroe desde el dashboard
+describe('Tour of heroes, go to a hero from dashboard', () => {
+  let page: TourOfHeroesPage;
+
+  beforeEach(() => {
+    page = new TourOfHeroesPage();
+    page.navigateTo();
+  });
+
+  it('Should navigate to first hero', () => {
+    page.selectHeroFromDashboard();
+    expect(page.getH2Tags()).toEqual(['Mr. Nice details!']);
+  });
+});
+

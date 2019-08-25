@@ -62,4 +62,8 @@ export class TourOfHeroesPage {
   getHeroName() {
     return element(by.tagName('input')).getText();
   }
+
+  selectHeroFromDashboard() {
+    element(by.css('.col-1-4')).click();
+  }
 }
