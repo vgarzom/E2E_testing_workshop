@@ -7,5 +7,8 @@ describe('Los estudiantes login', function() {
       cy.get('.Select-input').find('input').type("Mario Linares", {force: true})
       //La busqueda anterior debe devolver un único resultado. Nos dirigimos a la página del profesor
       cy.get('.Select-option').click()
+      //Filtramos las materias
+      cy.get('.materias').find('input[name="id:ISIS3510"]').check()
+      cy.get('.materias').find('input[name="id:ISIS1206L"]').check()
   })
 })
