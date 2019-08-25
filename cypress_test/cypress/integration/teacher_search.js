@@ -10,5 +10,6 @@ describe('Los estudiantes login', function() {
       //Filtramos las materias
       cy.get('.materias').find('input[name="id:ISIS3510"]').check()
       cy.get('.materias').find('input[name="id:ISIS1206L"]').check()
+
   })
 })
