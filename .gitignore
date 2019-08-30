@@ -43,3 +43,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+cypress_test/node_modules
+cypress_test/cypress/videos/
