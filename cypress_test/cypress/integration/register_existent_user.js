@@ -3,6 +3,7 @@ describe('Los estudiantes login', function() {
       cy.visit('https://losestudiantes.co')
       cy.contains('Cerrar').click()
       //
+      cy.screenshot();
       cy.contains('Ingresar').click()
       cy.get('.cajaSignUp').find('input[name="nombre"]').click().type("charlie")
       cy.get('.cajaSignUp').find('input[name="apellido"]').click().type("tester")
@@ -13,6 +14,6 @@ describe('Los estudiantes login', function() {
       cy.get('.cajaSignUp').find('input[name="acepta"]').check()
       cy.get('.cajaSignUp').contains('Registrarse').click()
       cy.contains("Error: Ya existe un usuario registrado con el correo 'charlietester@mailinator.com'")
-      
+      cy.screenshot();
   })
 })

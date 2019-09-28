@@ -2,6 +2,7 @@ describe('Los estudiantes login', function() {
   it('Visits los estudiantes and fails at login', function() {
       cy.visit('https://losestudiantes.co')
       cy.contains('Cerrar').click()
+      cy.screenshot();
       //
       //Buscamos el input de profesores
       cy.get('.Select-input').find('input').type("Mario Linares", {force: true})
@@ -10,6 +11,6 @@ describe('Los estudiantes login', function() {
       //Filtramos las materias
       cy.get('.materias').find('input[name="id:ISIS3510"]').check()
       cy.get('.materias').find('input[name="id:ISIS1206L"]').check()
-
+      cy.screenshot();
   })
 })
